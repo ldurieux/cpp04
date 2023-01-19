@@ -37,5 +37,5 @@ AMateria* MateriaSource::createMateria(const std::string& type)
 		std::cout << "MateriaSource " << type << " no such type" << std::endl;
 		return NULL;
 	}
-	return _templates[idx];
+	return _templates[idx]->clone();
 }
