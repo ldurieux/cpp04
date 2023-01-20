@@ -14,6 +14,11 @@ CharacterGarbage::~CharacterGarbage()
 
 void CharacterGarbage::add(AMateria* materia)
 {
+	if (!materia)
+	{
+		std::cout << "CharacterGarbage: cannot add null materia" << std::endl;
+		return ;
+	}
 	if (!_first)
 	{
 		_first = new Node();

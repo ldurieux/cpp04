@@ -15,6 +15,12 @@ MateriaSource::~MateriaSource()
 void MateriaSource::learnMateria(AMateria* materia)
 {
 	int idx;
+
+	if (!materia)
+	{
+		std::cout << "MateriaSource: cannot learn null materia" << std::endl;
+		return ;
+	}
 	for (idx = 0; idx < 4; idx++)
 		if (!_templates[idx])
 			break;

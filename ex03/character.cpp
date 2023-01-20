@@ -33,6 +33,12 @@ const std::string& Character::getName() const
 void Character::equip(AMateria* m)
 {
 	int dest;
+
+	if (!m)
+	{
+		std::cout << "Character: cannot equip null materia" << std::endl;
+		return ;
+	}
 	for (dest = 0; dest < 4; dest++)
 		if (!_inventory[dest])
 			break;
