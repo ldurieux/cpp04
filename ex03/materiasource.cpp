@@ -6,6 +6,13 @@ MateriaSource::MateriaSource()
 		_templates[i] = NULL;
 }
 
+MateriaSource::MateriaSource(const MateriaSource& other)
+{
+	for (int i = 0; i < 4; i++)
+		if (other._templates[i])
+			_templates[i] = other._templates[i]->clone();
+}
+
 MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
@@ -44,4 +51,17 @@ AMateria* MateriaSource::createMateria(const std::string& type)
 		return NULL;
 	}
 	return _templates[idx]->clone();
+}
+
+MateriaSource& MateriaSource::operator=(const MateriaSource& other)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		delete _templates[i];
+		_templates[i] = NULL;
+	}
+	for (int i = 0; i < 4; i++)
+		if (other._templates[i])
+			_templates[i] = other._templates[i]->clone();
+	return *this;
 }

@@ -7,10 +7,13 @@ class CharacterGarbage
 {
 public:
 	CharacterGarbage();
+	CharacterGarbage(const CharacterGarbage& other);
 	~CharacterGarbage();
 
 	void add(AMateria *materia);
 	void clean();
+
+	CharacterGarbage& operator=(const CharacterGarbage& other);
 
 private:
 	struct Node
